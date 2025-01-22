@@ -79,31 +79,46 @@ public class CharacterMovement : MonoBehaviour
 
     private void handleJump()
     {
-        // Comprobar si estamos en el suelo
-        if (isGrounded)
+        // Si estamos en el suelo, reseteamos la velocidad vertical para evitar acumulaciones
+        if (isGrounded && velocity.y < 0)
         {
-            // Si estamos tocando el suelo, reiniciar la velocidad vertical para evitar acumulación de gravedad
-            velocity.y = -0.5f; // Pequeño valor negativo para asegurar que el personaje permanece en el suelo
+            velocity.y = -2f;  // Valor pequeño negativo para asegurar que no quede flotando
+        }
 
-            // Comprobamos si se ha presionado el botón de salto
-            if (inputManager.IsJumpPressed)
+        // Comprobamos si estamos quietos y si se presiona el salto
+        if (inputManager.IsJumpPressed && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Inicializamos la velocidad de salto
+        }
+
+        // Raycast para detectar si estamos cerca del techo
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.up, out hit, characterController.height * 0.55f))
+        {
+            if (velocity.y > 0)  // Si está subiendo (saltando)
             {
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Aplicar velocidad inicial de salto
+                velocity.y = 0f;  // Detenemos el salto al chocar con el techo
+                Debug.Log("Chocando con el techo");
             }
         }
 
-        // Si chocamos con el techo, resetear la velocidad vertical a cero para detener el ascenso
-        if ((characterController.collisionFlags & CollisionFlags.Above) != 0)
+        // Aplicar gravedad de manera continua
+        if (!isGrounded)  // Si no estamos en el suelo, aplicar gravedad
         {
-            velocity.y = -1f; // Forzar caída inmediata después de golpear el techo
+            velocity.y += gravity * Time.deltaTime;
         }
 
-        // Aplicar la gravedad constantemente
-        velocity.y += gravity * Time.deltaTime;
+        // Límite máximo de velocidad de caída para evitar aceleración infinita
+        velocity.y = Mathf.Max(velocity.y, -20f);
 
-        // Aplicar movimiento al CharacterController
-        characterController.Move(velocity * Time.deltaTime);
+        // Aplicar movimiento en Y manteniendo X y Z independientes
+        Vector3 move = new Vector3(0, velocity.y, 0) * Time.deltaTime;
+        characterController.Move(move);
     }
+
+
+
+
 
 
 }
