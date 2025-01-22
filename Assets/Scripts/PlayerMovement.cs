@@ -1,83 +1,105 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-/*
- * PlayerMovement.cs
- * 
- * This script handles the movement and camera control for a first-person player.
- * - Movement using keyboard (WASD)
- * - Camera rotation with mouse
- * - Jumping with space key
- * 
- */
-
-public class PlayerMovement : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    public float speed = 5f;              // Player movement speed
-    public float jumpHeight = 2f;          // Jump force
-    public float gravity = -9.81f;         // Gravity force
+    InputManager inputManager;
+    CharacterController characterController;
 
-    [Header("Mouse Settings")]
-    public float mouseSensitivity = 100f;  // Sensitivity for mouse movement
-    public Transform playerCamera;         // Reference to the camera
+    Vector2 currentMovementInput;
+    Vector3 currentRunMovement;
 
-    private CharacterController controller;
-    private Vector3 velocity;
+    public Camera mainCamera;
+    public float mouseSensitivity = 100f;
     private float xRotation = 0f;
 
-    void Start()
+    //variables de salto
+    public float jumpHeight = 2.0f;  // Altura del salto
+    public float gravity = -9.81f;   // Gravedad aplicada al personaje
+    private bool isGrounded;         // Si el personaje está tocando el suelo
+    private Vector3 velocity;
+
+    Vector2 mouseDelta; // Almacena el input del ratón
+
+    private void Awake()
     {
-        // Hide and lock the cursor
+        inputManager = GetComponent<InputManager>();
+        characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
-        controller = GetComponent<CharacterController>();
+        Cursor.visible = false;
     }
 
+    // Update is called once per frame
     void Update()
     {
-        MovePlayer();
+        isGrounded = characterController.isGrounded;
+        handleMovement();
         RotatePlayer();
+        handleJump();
     }
 
-    void MovePlayer()
+    private void RotatePlayer()
     {
-        // Get input from keyboard
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        // Obtiene la entrada del mouse desde el Input Manager
+        mouseDelta = inputManager.CurrentMouseDelta;
 
-        // Convert input to movement direction
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
+        float mouseX = mouseDelta.x * mouseSensitivity * Time.deltaTime;
+        float mouseY = mouseDelta.y * mouseSensitivity * Time.deltaTime;
 
-        // Apply movement
-        controller.Move(move * speed * Time.deltaTime);
-
-        // Apply gravity
-        if (controller.isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f; // Keep grounded
-        }
-
-        // Jump logic
-        if (Input.GetButtonDown("Jump") && controller.isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-    }
-
-    void RotatePlayer()
-    {
-        // Get mouse input
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
-        // Rotate player around Y axis
-        transform.Rotate(Vector3.up * mouseX);
-
-        // Rotate camera around X axis (clamp to prevent flipping)
+        // Rotación vertical de la cámara (eje X)
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        playerCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Limitar rotación vertical
+        mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+        // Rotación horizontal del personaje (eje Y)
+        transform.Rotate(Vector3.up * mouseX);
+    }
+
+    private void handleMovement()
+        {
+        // Obtiene la entrada de movimiento actual desde el InputManager
+        Vector2 currentMovementInput = inputManager.CurrentMovementInput;
+
+        // Convierte la entrada del movimiento para obtener la dirección en el espacio del mundo
+        Vector3 moveDirection = transform.TransformDirection(new Vector3(currentMovementInput.x, 0, currentMovementInput.y));
+
+        // Asignación de movimiento, modificada con la velocidad de movimiento para caminar o correr
+        if (inputManager.IsRunPressed)
+        {
+            characterController.Move(moveDirection * 6.0f * Time.deltaTime); // Movimiento más rápido al correr
+        }
+        else
+        {
+            characterController.Move(moveDirection * 3.0f * Time.deltaTime); // Movimiento normal al caminar
+        }
+    }
+
+    private void handleJump()
+    {
+        // Si estamos en el suelo y estamos cayendo, detener la caída para evitar "caídas flotantes"
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f; // Ajuste de "amortiguamiento" en el suelo para evitar flotación o rebotes
+        }
+
+        // Comprobamos si se ha presionado el salto
+        if (inputManager.IsJumpPressed && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Velocidad inicial calculada para el salto
+        }
+
+
+        if (!isGrounded)
+        {
+            velocity.y += gravity * Time.deltaTime;  // Aplica la gravedad solo después de empezar a caer
+        }
+        // Aplica la gravedad solo si el personaje no está en el suelo o saltando
+
+
+        // Movemos al personaje
+        characterController.Move(velocity * Time.deltaTime);
     }
 }
