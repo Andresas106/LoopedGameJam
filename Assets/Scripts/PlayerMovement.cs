@@ -79,27 +79,31 @@ public class CharacterMovement : MonoBehaviour
 
     private void handleJump()
     {
-        // Si estamos en el suelo y estamos cayendo, detener la caída para evitar "caídas flotantes"
-        if (isGrounded && velocity.y < 0)
+        // Comprobar si estamos en el suelo
+        if (isGrounded)
         {
-            velocity.y = -2f; // Ajuste de "amortiguamiento" en el suelo para evitar flotación o rebotes
+            // Si estamos tocando el suelo, reiniciar la velocidad vertical para evitar acumulación de gravedad
+            velocity.y = -0.5f; // Pequeño valor negativo para asegurar que el personaje permanece en el suelo
+
+            // Comprobamos si se ha presionado el botón de salto
+            if (inputManager.IsJumpPressed)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Aplicar velocidad inicial de salto
+            }
         }
 
-        // Comprobamos si se ha presionado el salto
-        if (inputManager.IsJumpPressed && isGrounded)
+        // Si chocamos con el techo, resetear la velocidad vertical a cero para detener el ascenso
+        if ((characterController.collisionFlags & CollisionFlags.Above) != 0)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Velocidad inicial calculada para el salto
+            velocity.y = -1f; // Forzar caída inmediata después de golpear el techo
         }
 
+        // Aplicar la gravedad constantemente
+        velocity.y += gravity * Time.deltaTime;
 
-        if (!isGrounded)
-        {
-            velocity.y += gravity * Time.deltaTime;  // Aplica la gravedad solo después de empezar a caer
-        }
-        // Aplica la gravedad solo si el personaje no está en el suelo o saltando
-
-
-        // Movemos al personaje
+        // Aplicar movimiento al CharacterController
         characterController.Move(velocity * Time.deltaTime);
     }
+
+
 }
