@@ -1,10 +1,8 @@
-Ôªøusing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class CharacterMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     InputManager inputManager;
     CharacterController characterController;
@@ -19,10 +17,15 @@ public class CharacterMovement : MonoBehaviour
     //variables de salto
     public float jumpHeight = 2.0f;  // Altura del salto
     public float gravity = -9.81f;   // Gravedad aplicada al personaje
-    private bool isGrounded;         // Si el personaje est√° tocando el suelo
+    private bool isGrounded;         // Si el personaje est· tocando el suelo
     private Vector3 velocity;
 
-    Vector2 mouseDelta; // Almacena el input del rat√≥n
+    Vector2 mouseDelta; // Almacena el input del ratÛn
+
+    public GameObject ecoPrefab;
+    public Transform respawnPoint;
+
+    private bool isDead = false;
 
     private void Awake()
     {
@@ -35,10 +38,19 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (isDead) return;
         isGrounded = characterController.isGrounded;
         handleMovement();
         RotatePlayer();
         handleJump();
+
+        //muerte manual por tecla
+        if (inputManager.IsDiePressed)
+        {
+            Die();
+        }
+
     }
 
     private void RotatePlayer()
@@ -49,27 +61,27 @@ public class CharacterMovement : MonoBehaviour
         float mouseX = mouseDelta.x * mouseSensitivity * Time.deltaTime;
         float mouseY = mouseDelta.y * mouseSensitivity * Time.deltaTime;
 
-        // Rotaci√≥n vertical de la c√°mara (eje X)
+        // RotaciÛn vertical de la c·mara (eje X)
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Limitar rotaci√≥n vertical
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Limitar rotaciÛn vertical
         mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        // Rotaci√≥n horizontal del personaje (eje Y)
+        // RotaciÛn horizontal del personaje (eje Y)
         transform.Rotate(Vector3.up * mouseX);
     }
 
     private void handleMovement()
-        {
+    {
         // Obtiene la entrada de movimiento actual desde el InputManager
         Vector2 currentMovementInput = inputManager.CurrentMovementInput;
 
-        // Convierte la entrada del movimiento para obtener la direcci√≥n en el espacio del mundo
+        // Convierte la entrada del movimiento para obtener la direcciÛn en el espacio del mundo
         Vector3 moveDirection = transform.TransformDirection(new Vector3(currentMovementInput.x, 0, currentMovementInput.y));
 
-        // Asignaci√≥n de movimiento, modificada con la velocidad de movimiento para caminar o correr
+        // AsignaciÛn de movimiento, modificada con la velocidad de movimiento para caminar o correr
         if (inputManager.IsRunPressed)
         {
-            characterController.Move(moveDirection * 6.0f * Time.deltaTime); // Movimiento m√°s r√°pido al correr
+            characterController.Move(moveDirection * 6.0f * Time.deltaTime); // Movimiento m·s r·pido al correr
         }
         else
         {
@@ -82,7 +94,7 @@ public class CharacterMovement : MonoBehaviour
         // Si estamos en el suelo, reseteamos la velocidad vertical para evitar acumulaciones
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;  // Valor peque√±o negativo para asegurar que no quede flotando
+            velocity.y = -2f;  // Valor pequeÒo negativo para asegurar que no quede flotando
         }
 
         // Comprobamos si estamos quietos y si se presiona el salto
@@ -95,7 +107,7 @@ public class CharacterMovement : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.up, out hit, characterController.height * 0.55f))
         {
-            if (velocity.y > 0)  // Si est√° subiendo (saltando)
+            if (velocity.y > 0)  // Si est· subiendo (saltando)
             {
                 velocity.y = 0f;  // Detenemos el salto al chocar con el techo
                 Debug.Log("Chocando con el techo");
@@ -108,7 +120,7 @@ public class CharacterMovement : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
         }
 
-        // L√≠mite m√°ximo de velocidad de ca√≠da para evitar aceleraci√≥n infinita
+        // LÌmite m·ximo de velocidad de caÌda para evitar aceleraciÛn infinita
         velocity.y = Mathf.Max(velocity.y, -20f);
 
         // Aplicar movimiento en Y manteniendo X y Z independientes
@@ -117,9 +129,32 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
+    public void Die()
+    {
+        if (isDead) return;
+        isDead = true;
 
+        if (ecoPrefab != null)
+        {
+            Instantiate(ecoPrefab, transform.position, Quaternion.identity);
+        }
 
+        Invoke(nameof(Respawn), 1f);
+    }
 
+    void Respawn()
+    {
+        characterController.enabled = false;
+        transform.position = respawnPoint.position;
+        isDead = false;
+        characterController.enabled = true;
+    }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Interactable"))
+        {
+            Die();
+        }
+    }
 }

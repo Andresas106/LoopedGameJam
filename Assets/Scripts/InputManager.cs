@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     public Vector2 CurrentMovementInput { get; private set; }
     public bool IsRunPressed { get; private set; }
     public bool IsJumpPressed { get; private set; }
+    public bool IsDiePressed { get; private set; }
     public Vector2 CurrentMouseDelta { get; private set; }
     // Start is called before the first frame update
     void Awake()
@@ -31,6 +32,9 @@ public class InputManager : MonoBehaviour
         // Detectar movimiento del ratón
         input.Player.Look.performed += onLookInput; // Nuevo evento
         input.Player.Look.canceled += onLookInput; // Detener movimiento del ratón
+
+        input.Player.Die.started += onDieInput;
+        input.Player.Die.canceled += onDieInput;
 
     }
 
@@ -53,6 +57,11 @@ public class InputManager : MonoBehaviour
     private void onLookInput(InputAction.CallbackContext context) // Método para capturar movimiento del ratón
     {
         CurrentMouseDelta = context.ReadValue<Vector2>();
+    }
+
+    private void onDieInput(InputAction.CallbackContext context)
+    {
+        IsDiePressed = context.ReadValueAsButton();
     }
 
     private void OnEnable()
