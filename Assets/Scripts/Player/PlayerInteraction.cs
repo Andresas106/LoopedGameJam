@@ -6,11 +6,11 @@ public class PlayerInteraction : MonoBehaviour
     [Header("Configuración de Interacción")]
     public Camera playerCamera;              // Cámara personalizada (asignar manualmente)
     public float interactionDistance = 3f;    // Distancia de interacción
-    public LayerMask interactableLayer;       // Capa de objetos interactuables
     public TextMeshProUGUI interactionText;   // Referencia al texto de la UI
     public TextMeshProUGUI pointerText;       // Referencia al texto de la 'O' (puntero)
 
     private InputManager inputManager;
+    private bool hasInteracted = false;      // Variable para controlar si ya se ha interactuado
 
     void Start()
     {
@@ -45,7 +45,7 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit hit;
 
         // Dibujar el rayo para depuración
-        if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer))
+        if (Physics.Raycast(ray, out hit, interactionDistance))
         {
             Debug.DrawRay(ray.origin, ray.direction * interactionDistance, Color.red);
 
@@ -55,10 +55,11 @@ public class PlayerInteraction : MonoBehaviour
                 interactionText.gameObject.SetActive(true);  // Mostrar el mensaje
                 pointerText.fontStyle = FontStyles.Bold;  // Poner el puntero en negrita
 
-                // Detectar la tecla "E"
-                if (inputManager.IsInteractPressed)
+                // Detectar la tecla "E", pero solo permitir la interacción una vez
+                if (inputManager.IsInteractPressed && !hasInteracted)
                 {
                     Debug.Log("¡Interacción con: " + hit.collider.gameObject.name + "!");
+                    hasInteracted = true;  // Marcar que ya se ha interactuado
                 }
             }
         }
@@ -67,6 +68,12 @@ public class PlayerInteraction : MonoBehaviour
             interactionText.gameObject.SetActive(false);  // Ocultar el mensaje
             pointerText.fontStyle = FontStyles.Normal;  // Volver a la 'O' normal (no en negrita)
             Debug.DrawRay(ray.origin, ray.direction * interactionDistance, Color.green);
+        }
+
+        // Resetear la interacción cuando la tecla se suelte o el jugador deje de mirar el objeto
+        if (!inputManager.IsInteractPressed)
+        {
+            hasInteracted = false;
         }
     }
 }

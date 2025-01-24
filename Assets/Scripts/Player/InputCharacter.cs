@@ -241,7 +241,7 @@ public partial class @InputCharacter: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""a537c896-0c01-4172-992d-034a2d75cf00"",
                     ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Interact"",

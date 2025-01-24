@@ -6,40 +6,45 @@ public class PlatformInteraction : MonoBehaviour
     // Referencias públicas para asignar los Animators manualmente en el Inspector
     public Animator platformAnimator;
     public Animator platformAnimator1;
+    public Animator boton;
 
     // Controla si el jugador está cerca de la plataforma
     private bool isPlayerNear = false;
     private bool canInteract = true;  // Variable que controla si se puede interactuar
+    private bool hasInteracted = false;  // Variable que asegura que la interacción solo se realice una vez
 
     void Update()
     {
-        // Solo permitir la interacción si el jugador está cerca y presiona la tecla "E", y si se puede interactuar
-        if (isPlayerNear && Input.GetKeyDown(KeyCode.E) && canInteract)
+        // Solo permitir la interacción si el jugador está cerca y presiona la tecla "E", 
+        // si se puede interactuar, y si no se ha interactuado ya
+        if (isPlayerNear && Input.GetKeyDown(KeyCode.E) && canInteract && !hasInteracted)
         {
             // Asegúrate de que las referencias a los Animator estén configuradas correctamente
-            if (platformAnimator != null && platformAnimator1 != null)
+            if (platformAnimator != null && platformAnimator1 != null && boton != null)
             {
                 // Activar los triggers para la animación
                 platformAnimator.SetTrigger("Move");
                 platformAnimator1.SetTrigger("Move");
+                boton.SetTrigger("Move");
 
-                // Desactivar la posibilidad de interactuar durante 5 segundos
+                // Marcar como interactuado para que no se active de nuevo hasta que se haya completado el proceso
+                hasInteracted = true;
+
+                // Desactivar la posibilidad de interactuar durante 1 segundo
                 StartCoroutine(DisableInteractionTemporarily());
             }
-            else
-            {
-                Debug.LogError("Animator no asignado en el Inspector");
-            }
         }
-
     }
 
-    // Corutina para desactivar la interacción durante 5 segundos
+    // Corutina para desactivar la interacción durante 1 segundo
     private IEnumerator DisableInteractionTemporarily()
     {
         canInteract = false;  // Desactivar la interacción
-        yield return new WaitForSeconds(5.5f);  // Esperar 5 segundos
+        yield return new WaitForSeconds(1f);  // Esperar 1 segundo
         canInteract = true;  // Reactivar la interacción
+
+        // Restablecer la posibilidad de interactuar después de la espera
+        hasInteracted = false;  // Permitir una nueva interacción
     }
 
     // Detectar cuando el jugador entra al área de la plataforma (trigger)
