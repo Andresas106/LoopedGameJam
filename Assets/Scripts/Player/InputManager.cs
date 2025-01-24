@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     public bool IsRunPressed { get; private set; }
     public bool IsJumpPressed { get; private set; }
     public bool IsDiePressed { get; private set; }
+    public bool IsInteractPressed { get; private set; }
     public Vector2 CurrentMouseDelta { get; private set; }
     // Start is called before the first frame update
     void Awake()
@@ -36,6 +37,17 @@ public class InputManager : MonoBehaviour
         input.Player.Die.started += onDieInput;
         input.Player.Die.canceled += onDieInput;
 
+
+        input.Player.Interact.started += onInteractInput;
+        input.Player.Interact.canceled += onInteractInput;
+
+
+
+    }
+
+    private void onInteractInput(InputAction.CallbackContext context)
+    {
+        IsInteractPressed = context.ReadValueAsButton();
     }
 
     private void onJumpInput(InputAction.CallbackContext context)
