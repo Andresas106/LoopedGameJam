@@ -78,6 +78,8 @@ MonoBehaviour:
   mouseSensitivity: 100
   jumpHeight: 2
   gravity: -9.81
+  ecoPrefab: {fileID: 4744873808308825611, guid: 5276f0f6b5d5e23499ff62139d713e3c, type: 3}
+  respawnPoint: {fileID: 0}
 --- !u!114 &8870809799375937429
 MonoBehaviour:
   m_ObjectHideFlags: 0
