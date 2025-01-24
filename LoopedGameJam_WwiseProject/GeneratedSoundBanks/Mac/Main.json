@@ -1,0 +1,47 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3161908922",
+    "Type": "User",
+    "GUID": "{B32294C4-123D-45EA-8D98-6F56BA4110B4}",
+    "Language": "SFX",
+    "Hash": "{F9EEF096-08F8-2BF5-49F6-3267BF132A09}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
+    "ShortName": "Main",
+    "Path": "Main.bnk",
+    "Media": [
+     {
+      "Id": "408153789",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Digital-Horror - AMB - Pulsating breathe.wav",
+      "CachePath": "2A/{2A12E8E9-EFAC-005D-55C1-CFCD95D553B1}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "1784581504",
+      "Name": "Play_Digital_Horror___AMB___Pulsating_breathe",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Digital_Horror___AMB___Pulsating_breathe",
+      "GUID": "{60F53B6D-9201-43F3-A087-D91FA9F3D9DF}",
+      "DurationType": "OneShot",
+      "DurationMin": "88.348564",
+      "DurationMax": "88.348564",
+      "MediaRefs": [
+       {
+        "Id": "408153789"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{24E3E314-F812-4151-5918-2B29E221D9C3}"
+ }
+}
