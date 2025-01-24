@@ -1,6 +1,8 @@
 Event	ID	Name			Wwise Object Path	Notes
 	1784581504	Play_Digital_Horror___AMB___Pulsating_breathe			\Default Work Unit\Play_Digital_Horror___AMB___Pulsating_breathe	
+	3001765772	Play_hallway_of_fear_sub_air_hollow_01_loop			\Default Work Unit\Play_hallway_of_fear_sub_air_hollow_01_loop	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	408153789	Digital-Horror - AMB - Pulsating breathe	D:\Documentos\GitHub\LoopedGameJam\LoopedGameJam_WwiseProject\.cache\2A\{2A12E8E9-EFAC-005D-55C1-CFCD95D553B1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Digital-Horror - AMB - Pulsating breathe		16963100
+	541798096	hallway_of_fear_sub_air_hollow_01_loop	D:\Documentos\GitHub\LoopedGameJam\LoopedGameJam_WwiseProject\.cache\5A\{5A0BA2E2-4CDF-7C20-0D98-8369DE6B47FB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\hallway_of_fear_sub_air_hollow_01_loop		5911708
 
