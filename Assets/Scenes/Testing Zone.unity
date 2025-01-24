@@ -4814,7 +4814,7 @@ PrefabInstance:
     - target: {fileID: 4978725182610192198, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: ecoPrefab
       value: 
-      objectReference: {fileID: 1828496288018350583, guid: 6ddd5944141dd3e4bb139f8ce02925bf, type: 3}
+      objectReference: {fileID: 4744873808308825611, guid: 5276f0f6b5d5e23499ff62139d713e3c, type: 3}
     - target: {fileID: 4978725182610192198, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: m_Enabled
       value: 1
