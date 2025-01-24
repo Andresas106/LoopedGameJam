@@ -2,22 +2,28 @@ using UnityEngine;
 
 public class PlatformInteraction : MonoBehaviour
 {
-    private Animator animator;
-    private bool isPlayerNear = false;  // Para saber si el jugador está cerca
+    // Referencia pública para asignar el Animator manualmente en el Inspector
+    public Animator platformAnimator;
+    public Animator platformAnimator1;
 
-    void Start()
-    {
-        // Obtener el Animator del objeto
-        animator = GetComponent<Animator>();
-    }
+    // Controla si el jugador está cerca de la plataforma
+    private bool isPlayerNear = false;
 
     void Update()
     {
         // Solo permitir la interacción si el jugador está cerca y presiona la tecla "E"
         if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
         {
-            // Alternar la animación (mover hacia arriba o hacia abajo)
-            animator.SetTrigger("ToggleMove");
+            // Asegúrate de que la referencia al Animator esté configurada correctamente
+            if (platformAnimator != null)
+            {
+                    platformAnimator.SetTrigger("Move");
+                    platformAnimator1.SetTrigger("Move");
+            }
+            else
+            {
+                Debug.LogError("Animator no asignado en el Inspector");
+            }
         }
     }
 
