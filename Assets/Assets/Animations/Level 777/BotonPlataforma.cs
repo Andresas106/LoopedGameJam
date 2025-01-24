@@ -1,30 +1,45 @@
 using UnityEngine;
+using System.Collections;  // Necesario para las Coroutines
 
 public class PlatformInteraction : MonoBehaviour
 {
-    // Referencia pública para asignar el Animator manualmente en el Inspector
+    // Referencias públicas para asignar los Animators manualmente en el Inspector
     public Animator platformAnimator;
     public Animator platformAnimator1;
 
     // Controla si el jugador está cerca de la plataforma
     private bool isPlayerNear = false;
+    private bool canInteract = true;  // Variable que controla si se puede interactuar
 
     void Update()
     {
-        // Solo permitir la interacción si el jugador está cerca y presiona la tecla "E"
-        if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
+        // Solo permitir la interacción si el jugador está cerca y presiona la tecla "E", y si se puede interactuar
+        if (isPlayerNear && Input.GetKeyDown(KeyCode.E) && canInteract)
         {
-            // Asegúrate de que la referencia al Animator esté configurada correctamente
-            if (platformAnimator != null)
+            // Asegúrate de que las referencias a los Animator estén configuradas correctamente
+            if (platformAnimator != null && platformAnimator1 != null)
             {
-                    platformAnimator.SetTrigger("Move");
-                    platformAnimator1.SetTrigger("Move");
+                // Activar los triggers para la animación
+                platformAnimator.SetTrigger("Move");
+                platformAnimator1.SetTrigger("Move");
+
+                // Desactivar la posibilidad de interactuar durante 5 segundos
+                StartCoroutine(DisableInteractionTemporarily());
             }
             else
             {
                 Debug.LogError("Animator no asignado en el Inspector");
             }
         }
+
+    }
+
+    // Corutina para desactivar la interacción durante 5 segundos
+    private IEnumerator DisableInteractionTemporarily()
+    {
+        canInteract = false;  // Desactivar la interacción
+        yield return new WaitForSeconds(5.5f);  // Esperar 5 segundos
+        canInteract = true;  // Reactivar la interacción
     }
 
     // Detectar cuando el jugador entra al área de la plataforma (trigger)
