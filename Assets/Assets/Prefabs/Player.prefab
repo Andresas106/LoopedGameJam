@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 4008163267682086133}
   - component: {fileID: 7623957129688313266}
   - component: {fileID: 4720918888786456673}
+  - component: {fileID: 7491567002156573386}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 3442911358868013359}
+  volumeTrigger: {fileID: 3062670612106515589}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 16
@@ -263,6 +264,18 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &7491567002156573386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788397952470013712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0d92d459c383c49a91e84c267bb62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5408082833743241212
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3062670612106515589}
   - component: {fileID: 6331701405493848421}
+  - component: {fileID: 7826989503322307914}
   m_Layer: 4
   m_Name: Post-Processing Volume
   m_TagString: Untagged
@@ -312,6 +326,18 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &7826989503322307914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408082833743241212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b07490483b3b84b84144372be4eed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8677430551984534752
 GameObject:
   m_ObjectHideFlags: 0
