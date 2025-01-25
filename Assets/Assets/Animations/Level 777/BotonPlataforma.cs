@@ -12,12 +12,18 @@ public class PlatformInteraction : MonoBehaviour
     private bool isPlayerNear = false;
     private bool canInteract = true;  // Variable que controla si se puede interactuar
     private bool hasInteracted = false;  // Variable que asegura que la interacción solo se realice una vez
+    private InputManager inputManager;
+
+    void Start()
+    {
+        inputManager = GetComponent<InputManager>();
+    }
 
     void Update()
     {
         // Solo permitir la interacción si el jugador está cerca y presiona la tecla "E", 
         // si se puede interactuar, y si no se ha interactuado ya
-        if (isPlayerNear && Input.GetKeyDown(KeyCode.E) && canInteract && !hasInteracted)
+        if (isPlayerNear && inputManager.IsInteractPressed && canInteract && !hasInteracted)
         {
             // Asegúrate de que las referencias a los Animator estén configuradas correctamente
             if (platformAnimator != null && platformAnimator1 != null && boton != null)
