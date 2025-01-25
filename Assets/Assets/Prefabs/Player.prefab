@@ -77,8 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 4008163267682086133}
   mouseSensitivity: 100
-  jumpHeight: 2
-  gravity: -9.81
+  jumpHeight: 1.75
+  gravity: -30
   ecoPrefab: {fileID: 4744873808308825611, guid: 5276f0f6b5d5e23499ff62139d713e3c, type: 3}
   respawnPoint: {fileID: 0}
 --- !u!114 &8708742529694385015
@@ -107,9 +107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 4008163267682086133}
   interactionDistance: 3
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 8
   interactionText: {fileID: 0}
   pointerText: {fileID: 0}
 --- !u!1 &788397952470013712
