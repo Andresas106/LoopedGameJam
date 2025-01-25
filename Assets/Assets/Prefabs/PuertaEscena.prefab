@@ -384,6 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puerta: {fileID: 789231986288493146}
   escenaDestino: Pasadizo
+  canvasObject: {fileID: 0}
   canvasImage: {fileID: 1227788539992373899}
   fadeDuration: 2
 --- !u!114 &4426523137996679791
