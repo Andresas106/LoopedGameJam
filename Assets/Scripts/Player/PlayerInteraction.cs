@@ -5,7 +5,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     [Header("Configuración de Interacción")]
     public Camera playerCamera;              // Cámara personalizada (asignar manualmente)
-    public float interactionDistance = 3f;    // Distancia de interacción
+    public float interactionDistance = 1.5f;    // Distancia de interacción
     public TextMeshProUGUI interactionText;   // Referencia al texto de la UI
     public TextMeshProUGUI pointerText;       // Referencia al texto de la 'O' (puntero)
 

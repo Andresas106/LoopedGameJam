@@ -10,6 +10,7 @@ public class Puerta : MonoBehaviour
     public string escenaDestino;  // Nombre de la escena a la que se quiere teletransportar
     public Image canvasImage;  // Referencia a la imagen que se usará para el efecto de opacidad
     public float fadeDuration = 1f;  // Duración de la animación de opacidad en segundos (editable en el Inspector)
+    public GameObject player;
 
     private bool isPlayerNear = false;
     private bool canInteract = true;
@@ -41,6 +42,8 @@ public class Puerta : MonoBehaviour
 
                 // Marcar como interactuado para evitar activaciones repetidas
                 hasInteracted = true;
+
+                player.GetComponent<PlayerController>().enabled = false;
 
                 // Iniciar la transición del Canvas y el cambio de escena
                 StartCoroutine(TransicionCanvasYEscena());

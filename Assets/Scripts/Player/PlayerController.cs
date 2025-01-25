@@ -58,8 +58,8 @@ public class PlayerController : MonoBehaviour
         // Obtiene la entrada del mouse desde el Input Manager
         mouseDelta = inputManager.CurrentMouseDelta;
 
-        float mouseX = mouseDelta.x * mouseSensitivity * Time.deltaTime;
-        float mouseY = mouseDelta.y * mouseSensitivity * Time.deltaTime;
+        float mouseX = mouseDelta.x * mouseSensitivity;
+        float mouseY = mouseDelta.y * mouseSensitivity;
 
         // Rotación vertical de la cámara (eje X)
         xRotation -= mouseY;
