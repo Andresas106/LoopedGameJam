@@ -4619,6 +4619,10 @@ PrefabInstance:
       propertyPath: interactionText
       value: 
       objectReference: {fileID: 1221929960}
+    - target: {fileID: 288839237960683299, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: interactionDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 303560947937089400, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -4663,9 +4667,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7268617170454431866, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
-      propertyPath: jumpHeight
-      value: 1.5
+    - target: {fileID: 4008163267682086133, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7268617170454431866, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: respawnPoint
@@ -4673,7 +4677,7 @@ PrefabInstance:
       objectReference: {fileID: 1982401539}
     - target: {fileID: 7268617170454431866, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: mouseSensitivity
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6268,6 +6272,7 @@ GameObject:
   - component: {fileID: 2597374478230854624}
   - component: {fileID: 7398712692227429781}
   - component: {fileID: 7132763443492018078}
+  - component: {fileID: 7398712692227429782}
   m_Layer: 0
   m_Name: Plane.010
   m_TagString: Untagged
@@ -6458,6 +6463,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5394693770643796814}
   m_Mesh: {fileID: -8663802791670341782, guid: a96588a64bb41304083690e19c81f005, type: 3}
+--- !u!64 &7398712692227429782
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394693770643796814}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8663802791670341782, guid: a96588a64bb41304083690e19c81f005, type: 3}
 --- !u!23 &7416691523625503404
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6589,6 +6616,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 381604067}
+    - target: {fileID: 3083763561535457094, guid: af3de1c435c8410479bba511efdc7b9d, type: 3}
+      propertyPath: escenaDestino
+      value: Pasadizo
+      objectReference: {fileID: 0}
     - target: {fileID: 3665084941566467336, guid: af3de1c435c8410479bba511efdc7b9d, type: 3}
       propertyPath: m_Size.x
       value: 0.005
