@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 4008163267682086133}
-  interactionDistance: 1
+  interactionDistance: 0.5
   interactionText: {fileID: 0}
   pointerText: {fileID: 0}
 --- !u!1 &788397952470013712

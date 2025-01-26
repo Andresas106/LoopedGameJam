@@ -8,7 +8,7 @@ public class BotonCristalera : MonoBehaviour
     public GameObject objetoADesactivar;
     public GameObject objetoBDesactivar;
     public GameObject objetoAActivar;
-    private BoxCollider colliderE;
+    public GameObject objetoBActivar;
 
     // Controla si el jugador está cerca de la plataforma
     private bool isPlayerNear = false;
@@ -19,7 +19,6 @@ public class BotonCristalera : MonoBehaviour
     void Start()
     {
         inputManager = GetComponent<InputManager>();
-        colliderE = GetComponent<BoxCollider>();
     }
 
     void Update()
@@ -74,6 +73,7 @@ public class BotonCristalera : MonoBehaviour
         if (objetoAActivar != null)
         {
             objetoAActivar.SetActive(true);
+            objetoBActivar.SetActive(true);
         }
 
         gameObject.tag = "Untagged";
