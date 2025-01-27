@@ -59,6 +59,9 @@ public class ButtonInteraction : MonoBehaviour
     {
         // Puedes obtener el color que tenga el botón y hacer lo que necesites
         Color buttonColor = button.GetComponent<Renderer>().material.color;
+        Animator animator = button.GetComponent<Animator>();
+
+        animator.SetTrigger("Move");
         FindObjectOfType<ColorCodeLock>().InteractWithColorObject(buttonColor);
     }
 
