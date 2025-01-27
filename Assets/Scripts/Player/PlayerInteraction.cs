@@ -58,7 +58,6 @@ public class PlayerInteraction : MonoBehaviour
                 // Detectar la tecla "E", pero solo permitir la interacción una vez
                 if (inputManager.IsInteractPressed && !hasInteracted)
                 {
-                    Debug.Log("¡Interacción con: " + hit.collider.gameObject.name + "!");
                     hasInteracted = true;  // Marcar que ya se ha interactuado
                 }
             }
