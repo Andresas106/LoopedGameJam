@@ -14,7 +14,6 @@ public class VisibilityTrigger : MonoBehaviour
         if (targetObject != null)
         {
             targetObject.SetActive(false); // Esto funciona para cualquier tipo de objeto
-            Debug.Log("a");
         }
     }
 
@@ -24,7 +23,6 @@ public class VisibilityTrigger : MonoBehaviour
         if (targetObject != null)
         {
             targetObject.SetActive(true); // Hacemos visible el objeto, incluyendo Canvas
-                       Debug.Log("d");
         }
     }
 

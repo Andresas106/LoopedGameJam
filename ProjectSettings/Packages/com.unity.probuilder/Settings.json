@@ -164,7 +164,11 @@
             {
                 "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "ShapeBuilder.ActiveShapeIndex",
+<<<<<<< Updated upstream
                 "value": "{\"m_Value\":6}"
+=======
+                "value": "{\"m_Value\":4}"
+>>>>>>> Stashed changes
             },
             {
                 "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
@@ -184,7 +188,11 @@
             {
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastSize",
+<<<<<<< Updated upstream
                 "value": "{\"m_Value\":{\"x\":-1.0,\"y\":1.0,\"z\":1.0}}"
+=======
+                "value": "{\"m_Value\":{\"x\":10.989591598510743,\"y\":14.4650297164917,\"z\":-10.370792388916016}}"
+>>>>>>> Stashed changes
             },
             {
                 "type": "UnityEngine.Quaternion, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -232,6 +240,7 @@
                 "value": "{}"
             },
             {
+<<<<<<< Updated upstream
                 "type": "UnityEngine.ProBuilder.Shapes.Shape, Unity.ProBuilder, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.Cube",
                 "value": "{}"
@@ -252,6 +261,8 @@
                 "value": "{}"
             },
             {
+=======
+>>>>>>> Stashed changes
                 "type": "System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "uv.uvEditorGridSnapIncrement",
                 "value": "{\"m_Value\":0.125}"
