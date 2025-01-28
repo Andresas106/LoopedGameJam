@@ -41,9 +41,25 @@
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
      }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "3865314626",
+      "Name": "Material",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Material",
+      "GUID": "{E492D47A-1D8A-4298-8C5B-CC76395C6F14}",
+      "Switches": [
+       {
+        "Id": "841620460",
+        "Name": "Concrete",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Material\\Concrete",
+        "GUID": "{DB4F3E55-9BD7-457B-A8F6-5A1A9F78677A}"
+       }
+      ]
+     }
     ]
    }
   ],
-  "FileHash": "{8F4AE3FD-B43A-EDCF-8BE2-1BD9D9EFAA13}"
+  "FileHash": "{A63DF855-93BA-9713-F2E4-F4ACBE6E5F6C}"
  }
 }
