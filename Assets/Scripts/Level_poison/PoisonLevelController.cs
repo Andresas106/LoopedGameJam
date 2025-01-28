@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PoisonLevelController : MonoBehaviour
 {
-    public float initialTimer = 10f;  // Tiempo base de supervivencia inicial
-    public float gasReductionRate = 0.5f;  // Tasa de reducción de gas por ventilador
-    private float currentTimer;  // Temporizador actual en cada vida
-    private float accumulatedGasReduction = 0f;  // Reducción acumulada del gas (progreso persistente)
+    public float initialTimer = 4f;  // Tiempo base de supervivencia inicial
+    public float currentTimer;  // Temporizador actual en cada vida
     private bool isPlayerAlive = true;
+    private bool isInLabyrinth = false;
 
     private PlayerController playerController;
 
@@ -21,7 +20,7 @@ public class PoisonLevelController : MonoBehaviour
 
     void Update()
     {
-        if (isPlayerAlive)
+        if (isPlayerAlive && isInLabyrinth)
         {
             // Reducir el temporizador conforme pasa el tiempo
             currentTimer -= Time.deltaTime;
@@ -44,11 +43,10 @@ public class PoisonLevelController : MonoBehaviour
     public void ActivateVentilator(float bonusTime)
     {
         // Actualizar la reducción acumulada y el temporizador actual
-        accumulatedGasReduction += gasReductionRate;
         currentTimer += bonusTime;
+        initialTimer = initialTimer + bonusTime;
 
         // Asegurarse de no superar los límites del gas
-        accumulatedGasReduction = Mathf.Clamp(accumulatedGasReduction, 0f, 1f);
 
         // Opcional: Actualizar efectos visuales y/o de audio
         //UpdateGasEffect();
@@ -57,8 +55,27 @@ public class PoisonLevelController : MonoBehaviour
     private void ResetTimer()
     {
         // Reiniciar el temporizador considerando la reducción acumulada del gas
-        currentTimer = initialTimer + (accumulatedGasReduction * initialTimer);
+        currentTimer = initialTimer;
         isPlayerAlive = true;
+        isInLabyrinth = false;
+        
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isInLabyrinth = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isInLabyrinth = false;
+            currentTimer = initialTimer;
+        }
     }
 
     /*private void UpdateGasEffect()
