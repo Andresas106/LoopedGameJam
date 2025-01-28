@@ -84,7 +84,7 @@ MonoBehaviour:
   jumpHeight: 1.5
   gravity: -30
   ecoPrefab: {fileID: 4744873808308825611, guid: 5276f0f6b5d5e23499ff62139d713e3c, type: 3}
-  respawnPoint: {fileID: 1400471021175300051}
+  respawnPoint: {fileID: 0}
   spawnEffect: {fileID: 5795323938160086991}
   deathEffect: {fileID: 5795323938160086991}
 --- !u!114 &8708742529694385015
@@ -205,7 +205,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
