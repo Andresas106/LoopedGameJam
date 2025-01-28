@@ -33,8 +33,7 @@ public class PoisonLevelController : MonoBehaviour
                 // Llamar a la función de muerte del jugador
                 playerController.Die();
 
-                // Reiniciar el temporizador
-                ResetTimer();
+                Invoke(nameof(ResetTimer), 1f);
             }
 
             // Actualizar efectos visuales del gas

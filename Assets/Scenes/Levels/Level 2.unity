@@ -498,6 +498,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7268617170454431866, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1866133595}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -902,6 +906,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 16.020704, y: 0, z: 15.568514}
   m_Center: {x: -7.981721, y: 0.05, z: 3.0044088}
+--- !u!4 &1866133595 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3283137087942258269, guid: ce05589f84594dd45863f4a568b3e773, type: 3}
+  m_PrefabInstance: {fileID: 1341681747}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2113724840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 673f34569017fa54db945a305c891089, type: 3}
