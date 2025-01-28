@@ -35359,6 +35359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3164464076801958576, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: footstepAudio
+      value: 
+      objectReference: {fileID: 1841056790}
     - target: {fileID: 7268617170454431866, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: respawnPoint
       value: 
@@ -44539,6 +44543,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!82 &1841056790 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8270800199809073202, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+  m_PrefabInstance: {fileID: 1270723121}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1846958674
 GameObject:
   m_ObjectHideFlags: 0
