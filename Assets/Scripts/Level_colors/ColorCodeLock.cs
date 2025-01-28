@@ -10,8 +10,8 @@ public class ColorCodeLock : MonoBehaviour
 
     private void Start()
     {
-        /*if (door != null)
-            doorAnimator = door.GetComponent<Animator>();*/
+        if (door != null)
+            doorAnimator = door.GetComponent<Animator>();
     }
 
     // Llamada por los objetos interactivos en el entorno
@@ -61,10 +61,10 @@ public class ColorCodeLock : MonoBehaviour
     private void OpenDoor()
     {
         Debug.Log("¡Código correcto! Abriendo puerta...");
-        /*if (doorAnimator != null)
+        if (doorAnimator != null)
         {
-            doorAnimator.SetTrigger("Open");
-        }*/
+            doorAnimator.SetTrigger("Move");
+        }
     }
 }
 
