@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{B32294C4-123D-45EA-8D98-6F56BA4110B4}",
     "Language": "SFX",
-    "Hash": "{6203535C-F3C7-54F5-7BF6-3826A809B682}",
+    "Hash": "{F11BD713-0D1C-3B20-CB9B-44D51388E0D3}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -21,18 +21,19 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Digital-Horror - AMB - Pulsating breathe.wav",
-      "CachePath": "2A/{2A12E8E9-EFAC-005D-55C1-CFCD95D553B1}.wem"
-     },
-     {
-      "Id": "541798096",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "hallway_of_fear_sub_air_hollow_01_loop.wav",
-      "CachePath": "5A/{5A0BA2E2-4CDF-7C20-0D98-8369DE6B47FB}.wem"
+      "CachePath": "19/{19789272-CB7D-7FEF-988C-8E8487D0DE4A}.wem"
      }
     ],
     "Events": [
+     {
+      "Id": "2385628198",
+      "Name": "Footsteps",
+      "ObjectPath": "\\Events\\Default Work Unit\\Footsteps",
+      "GUID": "{DFBC448B-12D8-403E-8DF0-6FECD55142B5}",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
      {
       "Id": "1784581504",
       "Name": "Play_Digital_Horror___AMB___Pulsating_breathe",
@@ -46,24 +47,26 @@
         "Id": "408153789"
        }
       ]
-     },
+     }
+    ],
+    "SwitchGroups": [
      {
-      "Id": "3001765772",
-      "Name": "Play_hallway_of_fear_sub_air_hollow_01_loop",
-      "ObjectPath": "\\Events\\Default Work Unit\\Play_hallway_of_fear_sub_air_hollow_01_loop",
-      "GUID": "{5DB47DE6-C6E4-4CF3-B636-F46714EC3A6E}",
-      "DurationType": "OneShot",
-      "DurationMin": "30.789656",
-      "DurationMax": "30.789656",
-      "MediaRefs": [
+      "Id": "3865314626",
+      "Name": "Material",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Material",
+      "GUID": "{E492D47A-1D8A-4298-8C5B-CC76395C6F14}",
+      "Switches": [
        {
-        "Id": "541798096"
+        "Id": "841620460",
+        "Name": "Concrete",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Material\\Concrete",
+        "GUID": "{DB4F3E55-9BD7-457B-A8F6-5A1A9F78677A}"
        }
       ]
      }
     ]
    }
   ],
-  "FileHash": "{EF34BF58-1CB2-DC49-D0F1-0885D0332704}"
+  "FileHash": "{7EBCF17F-BA34-E5CB-6F8E-E1B814ED40DC}"
  }
 }
