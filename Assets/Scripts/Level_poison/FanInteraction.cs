@@ -53,18 +53,25 @@ public class fanInteraction : MonoBehaviour
                     
                 }
             }
+            else
+            {
+                selectedButton = null;
+            }
         }
     }
 
     // Función para interactuar con el objeto de color seleccionado
     private void InteractWithButton(GameObject button)
     {
-        // Puedes obtener el color que tenga el botón y hacer lo que necesites
-        Animator animator = button.GetComponent<Animator>();
+        if (selectedButton != null)
+        {
+            // Puedes obtener el color que tenga el botón y hacer lo que necesites
+            Animator animator = button.GetComponent<Animator>();
 
-        animator.SetTrigger("Move");
-        button.tag = "Untagged";
-        //FindObjectOfType<PlayerInteraction>().interactionText.enabled = false;
-        FindObjectOfType<PoisonLevelController>().ActivateVentilator(4f);
+            animator.SetTrigger("Move");
+            button.tag = "Untagged";
+            //FindObjectOfType<PlayerInteraction>().interactionText.enabled = false;
+            FindObjectOfType<PoisonLevelController>().ActivateVentilator(4f);
+        }
     }
 }
