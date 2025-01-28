@@ -127,7 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30bbc5583e473e4fbf8d80de10213be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstep: {fileID: 5960585533769140217}
+  footstepAudio: {fileID: 0}
+  pitchRange: 0.2
+  walkInterval: 0.3
+  sprintInterval: 0.1
 --- !u!1 &788397952470013712
 GameObject:
   m_ObjectHideFlags: 0
