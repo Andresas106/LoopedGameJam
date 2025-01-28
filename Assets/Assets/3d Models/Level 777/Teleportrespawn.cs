@@ -19,13 +19,6 @@ public class TeleportOnTrigger : MonoBehaviour
 
                 // (Opcional) Reinicia la rotación del objeto teletransportado
                 objectToTeleport.transform.rotation = Quaternion.identity;
-
-                // Mensaje de depuración
-                Debug.Log($"{objectToTeleport.name} ha sido teletransportado a {transform.position}");
-            }
-            else
-            {
-                Debug.LogWarning("¡No se ha asignado un objeto para teletransportar en el Inspector!");
             }
         }
     }
