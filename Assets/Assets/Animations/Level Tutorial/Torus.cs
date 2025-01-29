@@ -3,6 +3,7 @@ using UnityEngine;
 public class TorusInteractivo : MonoBehaviour, IInteractuable
 {
     public Animator objetoAnimado; // Objeto que se animará al interactuar
+    public PlayerController pc;
 
     public void Interactuar()
     {
@@ -11,7 +12,7 @@ public class TorusInteractivo : MonoBehaviour, IInteractuable
         {
             objetoAnimado.SetTrigger("Move");
         }
-
+        pc.havePower = true;
         // Desactiva el torus
         gameObject.SetActive(false);
 
