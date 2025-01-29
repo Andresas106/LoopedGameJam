@@ -78,11 +78,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 535b99a39a3667e40a2e38fadd89b2e7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -124,7 +124,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.456
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -187,6 +187,7 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 0a8b671d90f18564f885ddd3db94c035, type: 3}
   delayedSound: {fileID: 8300000, guid: 98ed12a0319bf28498a0ea66051bb126, type: 3}
   delayedSoundDelay: 1
+  havePower: 0
 --- !u!114 &8708742529694385015
 MonoBehaviour:
   m_ObjectHideFlags: 0
