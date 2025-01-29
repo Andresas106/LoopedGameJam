@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     InputManager inputManager;
     CharacterController characterController;
+    AudioSource audioSource;
 
     Vector2 currentMovementInput;
     Vector3 currentRunMovement;
@@ -24,8 +25,12 @@ public class PlayerController : MonoBehaviour
     public GameObject ecoPrefab;
     public Transform respawnPoint;
 
-    public GameObject spawnEffect; // El objeto asociado al Spawn Point
-    public GameObject deathEffect; // El objeto asociado a la muerte, inicialmente oculto
+    public GameObject spawnEffect;
+    public GameObject deathEffect;
+
+    public AudioClip deathSound;
+    public AudioClip delayedSound; // Nuevo sonido que sonará después de un tiempo
+    public float delayedSoundDelay = 2f; // Tiempo en segundos antes de que suene el segundo audio
 
     private bool isDead = false;
 
@@ -33,18 +38,13 @@ public class PlayerController : MonoBehaviour
     {
         inputManager = GetComponent<InputManager>();
         characterController = GetComponent<CharacterController>();
+        audioSource = GetComponent<AudioSource>();
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if (spawnEffect != null)
-        {
-            spawnEffect.SetActive(false); // Asegurarse de que está oculto inicialmente
-        }
-
-        if (deathEffect != null)
-        {
-            deathEffect.SetActive(false); // Asegurarse de que está oculto inicialmente
-        }
+        if (spawnEffect != null) spawnEffect.SetActive(false);
+        if (deathEffect != null) deathEffect.SetActive(false);
     }
 
     void Update()
@@ -135,11 +135,31 @@ public class PlayerController : MonoBehaviour
 
         if (deathEffect != null)
         {
-            deathEffect.transform.position = transform.position; // Mover el efecto a la posición del jugador
-            deathEffect.SetActive(true); // Hacerlo visible
+            deathEffect.transform.position = transform.position;
+            deathEffect.SetActive(true);
+        }
+
+        if (audioSource != null && deathSound != null)
+        {
+            audioSource.PlayOneShot(deathSound);
+        }
+
+        // Si hay un sonido retrasado configurado, iniciar la corutina para reproducirlo
+        if (delayedSound != null)
+        {
+            StartCoroutine(PlayDelayedSound());
         }
 
         Invoke(nameof(Respawn), 1f);
+    }
+
+    IEnumerator PlayDelayedSound()
+    {
+        yield return new WaitForSeconds(delayedSoundDelay);
+        if (audioSource != null && delayedSound != null)
+        {
+            audioSource.PlayOneShot(delayedSound);
+        }
     }
 
     void Respawn()
@@ -151,8 +171,8 @@ public class PlayerController : MonoBehaviour
 
         if (spawnEffect != null)
         {
-            spawnEffect.SetActive(true); // Mostrar el objeto en el Spawn Point
-            Invoke(nameof(HideSpawnEffect), 2f); // Ocultar el objeto después de 2 segundos (opcional)
+            spawnEffect.SetActive(true);
+            Invoke(nameof(HideSpawnEffect), 2f);
         }
 
         characterController.enabled = true;

@@ -71,7 +71,7 @@ public class fanInteraction : MonoBehaviour
             animator.SetTrigger("Move");
             button.tag = "Untagged";
             //FindObjectOfType<PlayerInteraction>().interactionText.enabled = false;
-            FindObjectOfType<PoisonLevelController>().ActivateVentilator(4f);
+            FindObjectOfType<PoisonLevelController>().ActivateVentilator(8f);
         }
     }
 }
