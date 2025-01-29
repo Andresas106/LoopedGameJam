@@ -7762,7 +7762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1373032411}
-  raycastDistance: 0.5
+  raycastDistance: 1
 --- !u!4 &381604076 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 303560947937089400, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
@@ -23575,7 +23575,7 @@ PrefabInstance:
       objectReference: {fileID: 1221929960}
     - target: {fileID: 288839237960683299, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: interactionDistance
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 303560947937089400, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: m_LocalPosition.x
