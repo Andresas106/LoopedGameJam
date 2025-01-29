@@ -3336,6 +3336,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1083010421520682484, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: m_Pitch
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083010421520682484, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f507cde3e3fa6d940a867279ff498cca, type: 3}
     - target: {fileID: 7268617170454431866, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: respawnPoint
       value: 

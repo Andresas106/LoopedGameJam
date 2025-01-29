@@ -459,19 +459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc052f1d7f4b5b14a8cdfb14505959fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: c5efa280f28e94c48812f28b144a8c49, type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
 --- !u!4 &1198774085
 Transform:
   m_ObjectHideFlags: 0
@@ -826,6 +813,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1083010421520682484, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: m_Pitch
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083010421520682484, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f507cde3e3fa6d940a867279ff498cca, type: 3}
     - target: {fileID: 7268617170454431866, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: respawnPoint
       value: 
