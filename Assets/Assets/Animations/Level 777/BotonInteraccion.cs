@@ -7,8 +7,8 @@ public class BotonInteraccion : MonoBehaviour, IInteractuable
 {
     public void Interactuar()
     {
-        // Aquí puedes agregar la lógica que deseas que ocurra al interactuar con el botón.
-        // En este caso, el botón solo activa la animación de interacción, que ya se maneja desde el script de InteracciónPlayer.
+        // Este método es llamado por el jugador para activar la interacción.
+        // Aquí puedes agregar la lógica adicional que deseas que ocurra al interactuar con el botón.
         Debug.Log("Botón presionado");
     }
 }

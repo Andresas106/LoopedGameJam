@@ -12,12 +12,17 @@ public class InteraccionPlayer777 : MonoBehaviour
     private InputManager inputManager; // Sistema de entrada
 
     [Header("Objetos Interactuables")]
-    public GameObject boton;  // Objeto interactuable (el botón)
-    private Animator animatorBoton;  // Animator del botón
+    public GameObject boton1;  // Primer botón
+    private Animator animatorBoton1;  // Animator del primer botón
+    public GameObject boton2;  // Segundo botón
+    private Animator animatorBoton2;  // Animator del segundo botón
+
     public GameObject objeto1;  // Primer objeto para activar animación
-    public GameObject objeto2;  // Segundo objeto para activar animación
     private Animator animatorObjeto1;  // Animator del primer objeto
+    public GameObject objeto2;  // Segundo objeto para activar animación
     private Animator animatorObjeto2;  // Animator del segundo objeto
+    public GameObject objeto3;
+    private Animator animatorObjeto3;
 
     void Start()
     {
@@ -28,10 +33,14 @@ public class InteraccionPlayer777 : MonoBehaviour
 
         inputManager = GetComponent<InputManager>();
 
-        // Inicializamos los animadores
-        if (boton != null)
+        // Inicializamos los animadores de los botones y objetos
+        if (boton1 != null)
         {
-            animatorBoton = boton.GetComponent<Animator>();
+            animatorBoton1 = boton1.GetComponent<Animator>();
+        }
+        if (boton2 != null)
+        {
+            animatorBoton2 = boton2.GetComponent<Animator>();
         }
         if (objeto1 != null)
         {
@@ -40,6 +49,10 @@ public class InteraccionPlayer777 : MonoBehaviour
         if (objeto2 != null)
         {
             animatorObjeto2 = objeto2.GetComponent<Animator>();
+        }
+        if (objeto3 != null)
+        {
+            animatorObjeto3 = objeto3.GetComponent<Animator>();
         }
     }
 
@@ -64,29 +77,43 @@ public class InteraccionPlayer777 : MonoBehaviour
             {
                 objeto.Interactuar();  // Ejecutar la acción del objeto interactuado
 
-                // Si el jugador interactúa con el botón
-                if (hit.collider.gameObject == boton && animatorBoton != null)
+                // Si el jugador interactúa con el primer botón
+                if (hit.collider.gameObject == boton1 && animatorBoton1 != null)
                 {
-                    animatorBoton.SetTrigger("Move");  // Animación del botón
-                    ActivarAnimacionesObjetos();
+                    animatorBoton1.SetTrigger("Move");  // Animación del primer botón
+                    ActivarAnimacionesBoton1();
+                }
+
+                // Si el jugador interactúa con el segundo botón
+                if (hit.collider.gameObject == boton2 && animatorBoton2 != null)
+                {
+                    animatorBoton2.SetTrigger("Move");  // Animación del segundo botón
+                    ActivarAnimacionesBoton2();
                 }
             }
         }
     }
 
     /// <summary>
-    /// Activa las animaciones de los otros dos objetos.
+    /// Activa las animaciones de los objetos asociados al primer botón.
     /// </summary>
-    void ActivarAnimacionesObjetos()
+    void ActivarAnimacionesBoton1()
     {
         if (animatorObjeto1 != null)
         {
             animatorObjeto1.SetTrigger("Move");  // Animación del primer objeto
+            animatorObjeto2.SetTrigger("Move");
         }
+    }
 
+    /// <summary>
+    /// Activa las animaciones de los objetos asociados al segundo botón.
+    /// </summary>
+    void ActivarAnimacionesBoton2()
+    {
         if (animatorObjeto2 != null)
         {
-            animatorObjeto2.SetTrigger("Move");  // Animación del segundo objeto
+            animatorObjeto3.SetTrigger("Move");  // Animación del segundo objeto
         }
     }
 }
