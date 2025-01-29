@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isDead = false;
     public bool havePower = false;
+    public bool isMoving = false;
+    public bool isJumping = false;
 
     private void Awake()
     {
@@ -89,6 +91,14 @@ public class PlayerController : MonoBehaviour
         {
             characterController.Move(moveDirection * 3.0f * Time.deltaTime);
         }
+
+        if (currentMovementInput == Vector2.zero) { 
+            isMoving = false;
+        }
+        else
+        {
+            isMoving = true;
+        }
     }
 
     private void handleJump()
@@ -96,11 +106,13 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            isJumping = false;
         }
 
         if (inputManager.IsJumpPressed && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            isJumping = true;
         }
 
         RaycastHit hit;
@@ -116,6 +128,7 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded)
         {
             velocity.y += gravity * Time.deltaTime;
+            isJumping = true; 
         }
 
         velocity.y = Mathf.Max(velocity.y, -20f);
