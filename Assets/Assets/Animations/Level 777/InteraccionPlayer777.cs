@@ -16,6 +16,8 @@ public class InteraccionPlayer777 : MonoBehaviour
     private Animator animatorBoton1;  // Animator del primer botón
     public GameObject boton2;  // Segundo botón
     private Animator animatorBoton2;  // Animator del segundo botón
+    public GameObject boton3;  // Segundo botón
+    private Animator animatorBoton3;  // Animator del segundo botón
 
     public GameObject objeto1;  // Primer objeto para activar animación
     private Animator animatorObjeto1;  // Animator del primer objeto
@@ -23,6 +25,8 @@ public class InteraccionPlayer777 : MonoBehaviour
     private Animator animatorObjeto2;  // Animator del segundo objeto
     public GameObject objeto3;
     private Animator animatorObjeto3;
+    public GameObject objeto4;
+    private Animator animatorObjeto4;
 
     void Start()
     {
@@ -42,6 +46,10 @@ public class InteraccionPlayer777 : MonoBehaviour
         {
             animatorBoton2 = boton2.GetComponent<Animator>();
         }
+        if (boton3 != null)
+        {
+            animatorBoton3 = boton3.GetComponent<Animator>();
+        }
         if (objeto1 != null)
         {
             animatorObjeto1 = objeto1.GetComponent<Animator>();
@@ -53,6 +61,10 @@ public class InteraccionPlayer777 : MonoBehaviour
         if (objeto3 != null)
         {
             animatorObjeto3 = objeto3.GetComponent<Animator>();
+        }
+        if (objeto4 != null)
+        {
+            animatorObjeto4 = objeto4.GetComponent<Animator>();
         }
     }
 
@@ -90,6 +102,12 @@ public class InteraccionPlayer777 : MonoBehaviour
                     animatorBoton2.SetTrigger("Move");  // Animación del segundo botón
                     ActivarAnimacionesBoton2();
                 }
+                // Si el jugador interactúa con el tercer botón
+                if (hit.collider.gameObject == boton3 && animatorBoton3 != null)
+                {
+                    animatorBoton3.SetTrigger("Move");  // Animación del segundo botón
+                    ActivarAnimacionesBoton3();
+                }
             }
         }
     }
@@ -114,6 +132,13 @@ public class InteraccionPlayer777 : MonoBehaviour
         if (animatorObjeto2 != null)
         {
             animatorObjeto3.SetTrigger("Move");  // Animación del segundo objeto
+        }
+    }
+    void ActivarAnimacionesBoton3()
+    {
+        if (animatorObjeto4 != null)
+        {
+            animatorObjeto4.SetTrigger("Move");  // Animación del segundo objeto
         }
     }
 }
