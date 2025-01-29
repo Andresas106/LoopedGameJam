@@ -1,14 +1,32 @@
 using UnityEngine;
 
-/// <summary>
-/// Este script permite que el botón interactuable realice alguna acción cuando el jugador lo presiona.
-/// </summary>
 public class BotonInteraccion : MonoBehaviour, IInteractuable
 {
+    public AudioClip clickSound; // Para asignar el sonido desde el Inspector
+    private AudioSource audioSource; // Para controlar el audio
+
+    private void Start()
+    {
+        // Inicializar el componente AudioSource si no estÃ¡ presente
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.playOnAwake = false; // Asegurarse de que el audio no se reproduzca automÃ¡ticamente al inicio
+    }
+
     public void Interactuar()
     {
-        // Este método es llamado por el jugador para activar la interacción.
-        // Aquí puedes agregar la lógica adicional que deseas que ocurra al interactuar con el botón.
-        Debug.Log("Botón presionado");
+        // Este mÃ©todo es llamado por el jugador para activar la interacciÃ³n
+        if (clickSound != null && audioSource != null)
+        {
+            if (!audioSource.isPlaying) // Comprobar si ya estÃ¡ reproduciendo un audio
+            {
+                audioSource.PlayOneShot(clickSound); // Reproducir el sonido del botÃ³n
+            }
+        }
+
+        Debug.Log("BotÃ³n presionado");
     }
 }
