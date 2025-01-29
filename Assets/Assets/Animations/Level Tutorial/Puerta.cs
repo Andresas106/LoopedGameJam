@@ -13,6 +13,8 @@ public class PuertaInteractiva : MonoBehaviour, IInteractuable
     public Image canvasImage;
     public float fadeDuration = 1f;
     public GameObject player;
+    public AudioClip clickSound; // Para asignar el sonido desde el Inspector
+    private AudioSource audioSource; // Para controlar el audio
 
     private bool hasInteracted = false;
 
@@ -20,8 +22,10 @@ public class PuertaInteractiva : MonoBehaviour, IInteractuable
     {
         if (!hasInteracted)
         {
+            audioSource = GetComponent<AudioSource>();
             hasInteracted = true;
             puerta.SetTrigger("Move");
+            audioSource.PlayOneShot(clickSound); // Reproducir el sonido del botón
             player.GetComponent<PlayerController>().enabled = false;
             StartCoroutine(TransicionCanvasYEscena());
         }
