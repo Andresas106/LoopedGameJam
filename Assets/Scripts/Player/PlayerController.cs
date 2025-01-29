@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public float delayedSoundDelay = 2f; // Tiempo en segundos antes de que suene el segundo audio
 
     private bool isDead = false;
+    public bool havePower = false;
 
     private void Awake()
     {
@@ -55,7 +56,7 @@ public class PlayerController : MonoBehaviour
         RotatePlayer();
         handleJump();
 
-        if (inputManager.IsDiePressed)
+        if (inputManager.IsDiePressed && havePower)
         {
             Die();
         }
