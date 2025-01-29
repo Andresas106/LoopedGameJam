@@ -12864,6 +12864,10 @@ PrefabInstance:
       propertyPath: interactionText
       value: 
       objectReference: {fileID: 1278997383}
+    - target: {fileID: 288839237960683299, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: interactionDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 303560947937089400, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -47.338
@@ -12947,7 +12951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1839851613}
-  raycastDistance: 0.5
+  raycastDistance: 1
 --- !u!114 &1842034328 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1227788539992373899, guid: af3de1c435c8410479bba511efdc7b9d, type: 3}
