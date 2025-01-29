@@ -18,9 +18,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level 1.unity
     guid: 53c3a7c013c7dc84aa8dc8e87cdb9ee7
   - enabled: 1
+    path: Assets/Scenes/Levels/Level 2.unity
+    guid: b18da51427c5d7a4994b539bc89e4090
+  - enabled: 1
     path: Assets/Scenes/Levels/Level 777.unity
     guid: 082b7dc335a584646933385c713f7224
   - enabled: 1
     path: Assets/Scenes/Levels/Pasadizo.unity
     guid: 1ace138a8cab13f47afdc86341541153
+  - enabled: 1
+    path: Assets/Scenes/Levels/Pasillo 2.unity
+    guid: 5267d325ae3959249b9b4579beec26ea
+  - enabled: 1
+    path: Assets/Scenes/Levels/Pasillo 3.unity
+    guid: 93178b0222416734ebef0f6b1328ee1f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Final Libertad.unity
+    guid: 44ec82794feb5b646b9287e54ef1487d
   m_configObjects: {}
