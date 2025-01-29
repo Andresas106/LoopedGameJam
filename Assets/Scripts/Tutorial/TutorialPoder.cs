@@ -9,13 +9,16 @@ public class TutorialPoder : MonoBehaviour
     public PlayerController poder;    // Referencia al controlador del jugador
     public TextMeshProUGUI texto;         // El texto que aparecerá cuando el jugador tenga poder
     public InputManager inputManager; // Referencia al InputManager
+    private bool isUsed = false;
 
     void Update()
     {
         // Verifica si el jugador tiene poder
-        if (poder.havePower)
+        if (poder.havePower && !isUsed)
         {
-            texto.enabled = true;  // Muestra el texto
+
+            texto.gameObject.SetActive(true);  // Muestra el texto
+            isUsed = true;
         }
 
         // Verifica si se ha presionado la tecla R o Triángulo (botón correspondiente del gamepad)
@@ -28,6 +31,6 @@ public class TutorialPoder : MonoBehaviour
     // Método que se llama para ocultar el texto
     private void OcultarTexto()
     {
-        texto.enabled = false;  // Oculta el texto
+        texto.gameObject.SetActive(false);  // Oculta el texto
     }
 }
