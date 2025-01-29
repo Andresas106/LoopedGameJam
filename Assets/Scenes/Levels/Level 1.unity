@@ -14411,6 +14411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3164464076801958576, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: pc
+      value: 
+      objectReference: {fileID: 1082623769}
     - target: {fileID: 7268617170454431866, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: havePower
       value: 1
@@ -16106,6 +16110,17 @@ MonoBehaviour:
   lightPrefab: {fileID: 5759454529316654117, guid: d323aef669788734dbe16411ad77e38b, type: 3}
   lightDuration: 10
   fadeOutTime: 10
+--- !u!114 &1082623769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7268617170454431866, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+  m_PrefabInstance: {fileID: 538809381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082623751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fd7c024cd31204ab9141ac4447e04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1085650438
 GameObject:
   m_ObjectHideFlags: 0
@@ -20971,7 +20986,7 @@ MonoBehaviour:
   m_horizontalMapping: 0
   m_verticalMapping: 0
   m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
+  m_geometrySortingOrder: 1
   m_IsTextObjectScaleStatic: 0
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1

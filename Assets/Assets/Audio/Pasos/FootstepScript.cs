@@ -9,9 +9,8 @@ public class FootstepScript : MonoBehaviour
     public float sprintInterval = 0.3f; // Intervalo entre pasos al correr (Shift)
     public PlayerController pc;
 
-    private bool isMoving = false; // Indica si el jugador está moviéndose
+   
     private Coroutine footstepCoroutine; // Referencia a la corrutina que reproduce pasos
-    private bool isJumping = false;
     private InputManager inputManager;
 
     void Awake()

@@ -188,6 +188,8 @@ MonoBehaviour:
   delayedSound: {fileID: 8300000, guid: 98ed12a0319bf28498a0ea66051bb126, type: 3}
   delayedSoundDelay: 1
   havePower: 0
+  isMoving: 0
+  isJumping: 0
 --- !u!114 &8708742529694385015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +234,7 @@ MonoBehaviour:
   pitchRange: 0.2
   walkInterval: 0.3
   sprintInterval: 0.1
+  pc: {fileID: 7268617170454431866}
 --- !u!1 &788397952470013712
 GameObject:
   m_ObjectHideFlags: 0
