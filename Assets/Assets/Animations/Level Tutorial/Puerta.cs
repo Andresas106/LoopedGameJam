@@ -23,6 +23,7 @@ public class PuertaInteractiva : MonoBehaviour, IInteractuable
         if (!hasInteracted)
         {
             audioSource = GetComponent<AudioSource>();
+            audioSource = gameObject.AddComponent<AudioSource>();
             hasInteracted = true;
             puerta.SetTrigger("Move");
             audioSource.PlayOneShot(clickSound); // Reproducir el sonido del botón

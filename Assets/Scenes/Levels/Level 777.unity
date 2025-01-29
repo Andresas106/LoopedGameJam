@@ -12857,7 +12857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7570a8048bd89046949d4d9d179fd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 3966394770708912055}
   rotatingHorizontalPart: {fileID: 608335804}
   rotationSpeed: 0.4
   instaLock: 1
@@ -42895,6 +42895,11 @@ MonoBehaviour:
   objeto2: {fileID: 1006301003}
   objeto3: {fileID: 750000450}
   objeto4: {fileID: 1238360359}
+--- !u!4 &3966394770708912055 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 303560947937089400, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+  m_PrefabInstance: {fileID: 3966394770708912035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7384406772174698117
 PrefabInstance:
   m_ObjectHideFlags: 0
