@@ -2366,7 +2366,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 0.2245282, g: 0.7910135, b: 1, a: 0.9529412}
+        key1: {r: 0.2245282, g: 0.7910135, b: 1, a: 0.13725491}
         key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 1, g: 1, b: 1, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5823,7 +5823,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.029320478, y: -0.13999987, z: 0.025728544}
-  m_LocalScale: {x: 1.3892137, y: 1.3892138, z: 1.3892138}
+  m_LocalScale: {x: 0.39706507, y: 0.3970651, z: 0.3970651}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2082086217}
@@ -7761,7 +7761,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 4.2e-44, z: 2.8176e-41, w: NaN}
+  m_BoundingSphereOverride: {x: 6.94e-43, y: 6.744018e-17, z: 6.94e-43, w: -7.474096e-29}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
