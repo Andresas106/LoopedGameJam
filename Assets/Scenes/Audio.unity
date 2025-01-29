@@ -351,6 +351,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1083010421520682484, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083010421520682484, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 535b99a39a3667e40a2e38fadd89b2e7, type: 3}
     - target: {fileID: 3164464076801958576, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: pitchRange
       value: 0.2
