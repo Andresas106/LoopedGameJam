@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Matable
   - Interactable
+  - Camara
   layers:
   - Default
   - TransparentFX

@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip delayedSound; // Nuevo sonido que sonará después de un tiempo
     public float delayedSoundDelay = 2f; // Tiempo en segundos antes de que suene el segundo audio
 
-    private bool isDead = false;
+    public bool isDead = false;
     public bool havePower = false;
     public bool isMoving = false;
     public bool isJumping = false;
