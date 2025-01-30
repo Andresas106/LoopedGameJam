@@ -737,8 +737,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1217548221}
     - target: {fileID: 3083763561535457094, guid: af3de1c435c8410479bba511efdc7b9d, type: 3}
+      propertyPath: clickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1470554843459d94cb89cd1917e6f3d0, type: 3}
+    - target: {fileID: 3083763561535457094, guid: af3de1c435c8410479bba511efdc7b9d, type: 3}
       propertyPath: escenaDestino
-      value: Level 1
+      value: Level 777
       objectReference: {fileID: 0}
     - target: {fileID: 3665084941566467336, guid: af3de1c435c8410479bba511efdc7b9d, type: 3}
       propertyPath: m_Size.x
