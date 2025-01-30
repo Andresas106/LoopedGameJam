@@ -59,6 +59,7 @@ public class PlayerInteraction : MonoBehaviour
                 if (inputManager.IsInteractPressed && !hasInteracted)
                 {
                     hasInteracted = true;  // Marcar que ya se ha interactuado
+                    Debug.Log("0holapueea");
                 }
             }
         }
