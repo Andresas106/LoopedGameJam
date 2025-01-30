@@ -7761,7 +7761,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 8.1e-44, z: 1.1426e-41, w: 1.7595023e+22}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 1.5e-44, z: 2.263e-42, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -52252,7 +52252,7 @@ MonoBehaviour:
   canvasImage: {fileID: 1227788541518684663}
   fadeDuration: 2
   player: {fileID: 381604067}
-  clickSound: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: 1470554843459d94cb89cd1917e6f3d0, type: 3}
 --- !u!23 &3129779574928548697
 MeshRenderer:
   m_ObjectHideFlags: 0
