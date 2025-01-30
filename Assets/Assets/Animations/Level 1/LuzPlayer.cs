@@ -8,15 +8,17 @@ public class PlayerDeathLight : MonoBehaviour
     public float fadeOutTime = 1f; // Tiempo que tarda en desvanecerse la luz
     InputManager inputManager;
     private bool isDead = false; // Estado del jugador
+    private PlayerController pc;
 
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
+        pc = GetComponent<PlayerController>();
     }
 
     private void Update()
     {
-        if (inputManager.IsDiePressed)
+        if (inputManager.IsDiePressed && !pc.isDead)
         {
             Die();
         }
@@ -25,8 +27,7 @@ public class PlayerDeathLight : MonoBehaviour
     // Método para manejar la muerte del jugador
     public void Die()
     {
-        if (isDead) return;
-        isDead = true;
+        if (pc.isDead) return;
 
         // Crear la luz en el lugar donde murió el jugador
         if (lightPrefab != null)
