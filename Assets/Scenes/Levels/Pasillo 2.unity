@@ -312,6 +312,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PuertaEscena
       objectReference: {fileID: 0}
+    - target: {fileID: 789231986288493146, guid: af3de1c435c8410479bba511efdc7b9d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b7f6f49e64ef2f248975f6f5a5f98016, type: 2}
     - target: {fileID: 1227788539992373899, guid: af3de1c435c8410479bba511efdc7b9d, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -5740,17 +5744,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573517284}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &608327675 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6112942970918289878, guid: 6b05b48a3d67b7a4b971634cb89cc678, type: 3}
-  m_PrefabInstance: {fileID: 661682411}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &642639106
 GameObject:
   m_ObjectHideFlags: 0
@@ -7678,7 +7671,7 @@ PrefabInstance:
     - target: {fileID: 288839237960683299, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: pointerText
       value: 
-      objectReference: {fileID: 608327675}
+      objectReference: {fileID: 0}
     - target: {fileID: 288839237960683299, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: interactionText
       value: 
