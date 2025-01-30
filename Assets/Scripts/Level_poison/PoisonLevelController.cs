@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoisonLevelController : MonoBehaviour
 {
-    public float initialTimer = 4f;  // Tiempo base de supervivencia inicial
+    public float initialTimer = 10f;  // Tiempo base de supervivencia inicial
     public float currentTimer;  // Temporizador actual en cada vida
     private bool isPlayerAlive = true;
     private bool isInLabyrinth = false;
