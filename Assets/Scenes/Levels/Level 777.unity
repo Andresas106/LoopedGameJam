@@ -34062,7 +34062,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 1470554843459d94cb89cd1917e6f3d0, type: 3}
     - target: {fileID: 5192529721732273437, guid: 9242ffeb2fa429b4ead6da20070f11d1, type: 3}
       propertyPath: escenaDestino
-      value: Pasillo3
+      value: Pasillo 3
       objectReference: {fileID: 0}
     - target: {fileID: 5210431367308306951, guid: 9242ffeb2fa429b4ead6da20070f11d1, type: 3}
       propertyPath: m_Color.a
