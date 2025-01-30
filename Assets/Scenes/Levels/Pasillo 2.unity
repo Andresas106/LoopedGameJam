@@ -5308,6 +5308,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!20 &459347540 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4008163267682086133, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+  m_PrefabInstance: {fileID: 1839851611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &494146084 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8270800199809073202, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
@@ -6690,6 +6695,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 428668979493045831, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
   m_PrefabInstance: {fileID: 1839851611}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1217548229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217548221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba40066db21da842b87cc0676c20af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 459347540}
+  raycastDistance: 1
 --- !u!1 &1251191987
 GameObject:
   m_ObjectHideFlags: 0
@@ -7752,10 +7771,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 288839237960683299, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 428668979493045831, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1217548229}
   m_SourcePrefab: {fileID: 100100000, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
 --- !u!1 &1872690170
 GameObject:

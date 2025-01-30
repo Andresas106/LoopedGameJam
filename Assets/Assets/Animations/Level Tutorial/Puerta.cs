@@ -22,6 +22,7 @@ public class PuertaInteractiva : MonoBehaviour, IInteractuable
     {
         if (!hasInteracted)
         {
+            Debug.Log("Hola");
             audioSource = GetComponent<AudioSource>();
             audioSource = gameObject.AddComponent<AudioSource>();
             hasInteracted = true;
