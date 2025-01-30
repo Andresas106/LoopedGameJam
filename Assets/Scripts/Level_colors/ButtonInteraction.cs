@@ -61,7 +61,10 @@ public class ButtonInteraction : MonoBehaviour
         Color buttonColor = button.GetComponent<Renderer>().material.color;
         Animator animator = button.GetComponent<Animator>();
 
-        animator.SetTrigger("Move");
+        if(animator != null)
+        {
+            animator.SetTrigger("Move");
+        }
         FindObjectOfType<ColorCodeLock>().InteractWithColorObject(buttonColor);
     }
 
