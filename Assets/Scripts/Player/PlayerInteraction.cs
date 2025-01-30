@@ -7,7 +7,6 @@ public class PlayerInteraction : MonoBehaviour
     public Camera playerCamera;              // Cámara personalizada (asignar manualmente)
     public float interactionDistance = 1.5f;    // Distancia de interacción
     public TextMeshProUGUI interactionText;   // Referencia al texto de la UI
-    public TextMeshProUGUI pointerText;       // Referencia al texto de la 'O' (puntero)
 
     private InputManager inputManager;
     private bool hasInteracted = false;      // Variable para controlar si ya se ha interactuado
@@ -19,7 +18,7 @@ public class PlayerInteraction : MonoBehaviour
             Debug.LogError("¡Por favor asigna la cámara del jugador en el inspector!");
         }
 
-        if (interactionText == null || pointerText == null)
+        if (interactionText == null)
         {
             Debug.LogError("¡Por favor asigna el objeto de texto en el inspector!");
         }
@@ -28,7 +27,6 @@ public class PlayerInteraction : MonoBehaviour
 
         // Ocultar el texto al inicio
         interactionText.gameObject.SetActive(false);
-        pointerText.fontStyle = FontStyles.Normal;  // Poner la 'O' en estilo normal
     }
 
     void Update()
@@ -53,7 +51,6 @@ public class PlayerInteraction : MonoBehaviour
             if (hit.collider.CompareTag("Interactable"))
             {
                 interactionText.gameObject.SetActive(true);  // Mostrar el mensaje
-                pointerText.fontStyle = FontStyles.Bold;  // Poner el puntero en negrita
 
                 // Detectar la tecla "E", pero solo permitir la interacción una vez
                 if (inputManager.IsInteractPressed && !hasInteracted)
@@ -66,7 +63,6 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             interactionText.gameObject.SetActive(false);  // Ocultar el mensaje
-            pointerText.fontStyle = FontStyles.Normal;  // Volver a la 'O' normal (no en negrita)
             Debug.DrawRay(ray.origin, ray.direction * interactionDistance, Color.green);
         }
 
