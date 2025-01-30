@@ -11509,11 +11509,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puerta: {fileID: 1905920135}
-  escenaDestino: Level 1
+  escenaDestino: Level 2
   canvasImage: {fileID: 1842034328}
   fadeDuration: 1
   player: {fileID: 1839851612}
-  clickSound: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: 1470554843459d94cb89cd1917e6f3d0, type: 3}
 --- !u!1 &771638871
 GameObject:
   m_ObjectHideFlags: 0
