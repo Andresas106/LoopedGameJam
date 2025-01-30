@@ -8,6 +8,7 @@ public class PoisonLevelController : MonoBehaviour
     public float currentTimer;  // Temporizador actual en cada vida
     private bool isPlayerAlive = true;
     private bool isInLabyrinth = false;
+    private InputManager ip;
 
     private PlayerController playerController;
 
@@ -16,6 +17,7 @@ public class PoisonLevelController : MonoBehaviour
         // Inicializar el temporizador considerando la reducción acumulada
         ResetTimer();
         playerController = FindObjectOfType<PlayerController>();
+        ip = FindObjectOfType<InputManager>();
     }
 
     void Update()
@@ -37,6 +39,11 @@ public class PoisonLevelController : MonoBehaviour
 
             // Actualizar efectos visuales del gas
             //UpdateGasEffect();
+        }
+
+        if(ip.IsDiePressed)
+        {
+            ResetTimer();
         }
     }
 

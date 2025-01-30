@@ -8,6 +8,7 @@ public class fanInteraction : MonoBehaviour
     private GameObject selectedButton = null; // Objeto seleccionado por el raycast
     public float raycastDistance = 5f; // Distancia del raycast para interactuar
     private InputManager inputManager; // Para gestionar la interacción con "E"
+    public AudioClip buttonSound; // El clip de audio que quieres reproducir
 
     private bool hasInteracted = false;      // Variable para controlar si ya se ha interactuado
 
@@ -67,9 +68,17 @@ public class fanInteraction : MonoBehaviour
         {
             // Puedes obtener el color que tenga el botón y hacer lo que necesites
             Animator animator = button.GetComponent<Animator>();
+            if(animator != null)
+            {
+                animator.SetTrigger("Move");
+                button.tag = "Untagged";
+            }
+            
 
-            animator.SetTrigger("Move");
-            button.tag = "Untagged";
+            if (buttonSound != null)
+            {
+                AudioSource.PlayClipAtPoint(buttonSound, button.transform.position);
+            }
             //FindObjectOfType<PlayerInteraction>().interactionText.enabled = false;
             FindObjectOfType<PoisonLevelController>().ActivateVentilator(8f);
         }
