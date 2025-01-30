@@ -7,6 +7,11 @@ public class ColorCodeLock : MonoBehaviour
     private int currentSlot = 0; // Índice del slot actual
     public GameObject door; // Asigna tu puerta aquí
     private Animator doorAnimator;
+    public Material YES;
+    public Material NO;
+    public Material NEGRO;
+    public Renderer YESS;
+    public Renderer NOO;
 
     private void Start()
     {
@@ -51,11 +56,23 @@ public class ColorCodeLock : MonoBehaviour
         if (isCorrect)
         {
             OpenDoor();
+            YESS.material = YES;
+            NOO.material = NEGRO;
         }
         else
         {
             Debug.Log("Código incorrecto. Inténtalo de nuevo.");
+            YESS.material = NEGRO; // Dejar YES en material original (negro)
+            NOO.material = NO;
         }
+
+        Invoke("ResetMaterials", 2f);
+    }
+
+    void ResetMaterials()
+    {
+        YESS.material = NEGRO;
+        NOO.material = NEGRO;
     }
 
     private void OpenDoor()
