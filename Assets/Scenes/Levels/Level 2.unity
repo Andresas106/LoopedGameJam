@@ -24633,7 +24633,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.41e-43, y: 7.1e-44, z: 0, w: 2.9914808e+16}
+  m_BoundingSphereOverride: {x: 0, y: 844486600, z: 13.33234, w: 3.7345804e+15}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -33489,7 +33489,7 @@ PrefabInstance:
     - target: {fileID: 288839237960683299, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: pointerText
       value: 
-      objectReference: {fileID: 1713064516}
+      objectReference: {fileID: 0}
     - target: {fileID: 288839237960683299, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
       propertyPath: interactionText
       value: 
@@ -33574,6 +33574,10 @@ PrefabInstance:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 71922334}
+    - target: {fileID: 8677430551984534752, guid: e5b6438b936214146a46d0fd8370cbef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33708,6 +33712,10 @@ PrefabInstance:
       propertyPath: clickSound
       value: 
       objectReference: {fileID: 8300000, guid: 1470554843459d94cb89cd1917e6f3d0, type: 3}
+    - target: {fileID: 3083763561535457094, guid: af3de1c435c8410479bba511efdc7b9d, type: 3}
+      propertyPath: escenaDestino
+      value: Pasillo 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3732533610036721270, guid: af3de1c435c8410479bba511efdc7b9d, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
@@ -33793,7 +33801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1484993712
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38820,17 +38828,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &1713064516 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6112942970918289878, guid: 6b05b48a3d67b7a4b971634cb89cc678, type: 3}
-  m_PrefabInstance: {fileID: 879504453}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &1761745896
 Mesh:
   m_ObjectHideFlags: 0

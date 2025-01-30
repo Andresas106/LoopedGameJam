@@ -3,7 +3,11 @@ using UnityEngine;
 public class BotonInteraccion : MonoBehaviour, IInteractuable
 {
     public AudioClip clickSound; // Para asignar el sonido desde el Inspector
+    public AudioClip plataforma1; // Para asignar el sonido desde el Inspector
     private AudioSource audioSource; // Para controlar el audio
+    public AudioSource audioSource2;
+    public AudioSource audioSource3;
+
 
     private void Start()
     {
@@ -24,6 +28,10 @@ public class BotonInteraccion : MonoBehaviour, IInteractuable
             if (!audioSource.isPlaying) // Comprobar si ya está reproduciendo un audio
             {
                 audioSource.PlayOneShot(clickSound); // Reproducir el sonido del botón
+                audioSource2.PlayOneShot(plataforma1); // Reproducir el sonido del botón
+                audioSource3.PlayOneShot(plataforma1); // Reproducir el sonido del botón
+
+
             }
         }
 

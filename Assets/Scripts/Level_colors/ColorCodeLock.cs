@@ -13,10 +13,18 @@ public class ColorCodeLock : MonoBehaviour
     public Renderer YESS;
     public Renderer NOO;
 
+    public AudioClip correctSound;  // Sonido para cuando acierta
+    public AudioClip wrongSound;    // Sonido para cuando se equivoca
+    public AudioClip Puerta;
+    private AudioSource audioSource; // El componente AudioSource para reproducir sonidos
+
+
+
     private void Start()
     {
         if (door != null)
             doorAnimator = door.GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Llamada por los objetos interactivos en el entorno
@@ -58,12 +66,21 @@ public class ColorCodeLock : MonoBehaviour
             OpenDoor();
             YESS.material = YES;
             NOO.material = NEGRO;
+            if (audioSource != null && correctSound != null)
+            {
+                audioSource.PlayOneShot(correctSound);
+                audioSource.PlayOneShot(Puerta);
+            }
         }
         else
         {
             Debug.Log("Código incorrecto. Inténtalo de nuevo.");
             YESS.material = NEGRO; // Dejar YES en material original (negro)
             NOO.material = NO;
+            if (audioSource != null && wrongSound != null)
+            {
+                audioSource.PlayOneShot(wrongSound);
+            }
         }
 
         Invoke("ResetMaterials", 2f);
